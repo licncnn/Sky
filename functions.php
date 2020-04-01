@@ -2,10 +2,8 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 define("THEME_VERSION", "0.1.0");
 function themeConfig($form) {
-	$Favicon = new Typecho_Widget_Helper_Form_Element_Text('Favicon', NULL, NULL, _t('站点 Favicon 地址'), _t('在这里填入一个图片 URL 地址, 以在网站标题前加上一个 favicon'));
-	$form->addInput($Favicon);
-	$avatarUrl = new Typecho_Widget_Helper_Form_Element_Text('avatarUrl', NULL, NULL, _t('站点头像地址'), _t('在这里填入一个图片 URL 地址, 以在网站首页上加上一个头像'));
-	$form->addInput($avatarUrl);
+	$logo = new Typecho_Widget_Helper_Form_Element_Text('logo', NULL, NULL, _t('头像地址'), _t('在这里填入一个图片 URL 地址, 以在网站首页上加上一个头像'));
+	$form->addInput($logo);
 	$staticFiles = new Typecho_Widget_Helper_Form_Element_Radio('staticFiles', array('local' => _t('本地'), 'jsdelivr' => _t('云端')), 'jsdelivr', _t('CDN源'), _t('选择是否采用云端加速'));
 	$form->addInput($staticFiles);
 }
@@ -114,4 +112,14 @@ function get_comment_avatar($moe=NULL){
    $avatar = $host.'/'.$hash.'?s=100';
   }
   echo $avatar;
+}
+
+/* 个人头像 */
+function logo(){
+  $setting = Helper::options()->logoUrl;
+  if(empty($setting)){
+    staticFiles('assets/logo.jpg');
+  }else{
+    echo $setting;
+  }
 }

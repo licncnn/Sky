@@ -31,7 +31,7 @@
 				<div class="col px-0">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-lg-6 text-center">
-							<img src="<?php $this->options->avatarUrl() ?>" class="avatar" style="margin-bottom: 1rem; height: 100px; width: 100px;">
+							<img src="<?php logo(); ?>" class="avatar" style="margin-bottom: 1rem; height: 100px; width: 100px;">
 							<h1 class="text-white"><?php $this->options->title() ?></h1>
 							<hr/>
 							<p class="lead text-white"><?php $this->options->description() ?></p>
