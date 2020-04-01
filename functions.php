@@ -1,6 +1,6 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-define("THEME_VERSION", "0.2.0");
+define("THEME_VERSION", "0.1.0");
 function themeConfig($form) {
 	$Favicon = new Typecho_Widget_Helper_Form_Element_Text('Favicon', NULL, NULL, _t('站点 Favicon 地址'), _t('在这里填入一个图片 URL 地址, 以在网站标题前加上一个 favicon'));
 	$form->addInput($Favicon);
